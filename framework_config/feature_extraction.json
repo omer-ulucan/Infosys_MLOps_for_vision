@@ -1,0 +1,33 @@
+{    
+    "template_embeddings":
+    {
+        "type":"local", 
+        "offlineModel":"C:\\Users\\bikram.halder\\.cache\\huggingface\\hub\\models--google--vit-base-patch16-224-in21k",
+        "cropObjectFromImages":true,
+        "saveCroppedObject":true,
+        "saveCroppedObjectWithBbox":true,
+        "embeddings_format":"pickle",        
+        "embeddings_model_class" : "Google_vit_model"  ,                        
+        "embeddings_model":"google/vit-base-patch16-224-in21k",
+        "feature_aggregation": "max",
+        "extension_type":[".jpg",".jpeg",".png"]
+
+    },
+    "input_from": 
+    {
+        "type":"Local",
+        "path":"H:/data/gt_input",
+        "classFile":"H:/data/gt_input/classes.names"
+    },    
+    "output_to": 
+    {
+        "type":"Local",
+        "path":"H:/data/feature_extraction_output"
+    },
+    "similarity_check":
+    {
+        "method":"cosine_similarity",
+        "min_score_threshold":"",
+        "records_to_return":5
+    }
+}

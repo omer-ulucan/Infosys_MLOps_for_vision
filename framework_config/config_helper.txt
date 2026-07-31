@@ -1,0 +1,69 @@
+--- Augmentation Pipeline ---
+{
+  "raw_data_source": "Local",
+  "pipeline_type": "AugmentationPipeline",
+  "pipeline_platform": "IVAValidationPipeline",
+  "custom_pipeline_yolo": "YoloV8",
+  "gt_report": "GTReport",
+  "platform_config": "framework_config/augmentations_config.json"
+}
+
+--- Feature Extraction Pipeline ---
+{
+  "pipeline_type": "FeatureExtractionPipeline",
+  "raw_data_source": "Local",
+  "pipeline_platform": "IVAValidationPipeline",
+  "custom_pipeline_yolo": "YoloV8",
+  "gt_report": "GTReport",
+  "platform_config": "framework_config/feature_extraction.json"
+}
+
+--- Validation by Embeddings Pipeline ---
+{
+  "pipeline_type": "ValidationByEmbeddingsPipeline",
+  "raw_data_source": "Local",
+  "pipeline_platform": "IVAValidationPipeline",
+  "custom_pipeline_yolo": "YoloV8",
+  "gt_report": "GTReport",
+  "platform_config": "framework_config/validation_by_embeddings.json"
+}
+
+--- Training Pipeline ---
+{
+  "raw_data_source": "Local",
+  "pipeline_type": "TrainingPipeline",
+  "pipeline_platform": "CustomYoloPipeline",
+  "custom_pipeline_yolo": "YoloV8",
+  "gt_report": "GTReport",
+  "platform_config": "framework_config/yolov8-custom_training_pipeline.json"
+}
+
+--- Training Pipeline (Patch-based Inference) ---
+{
+  "raw_data_source": "Local",
+  "pipeline_type": "TrainingPipeline",
+  "pipeline_platform": "CustomYoloPipeline",
+  "custom_pipeline_yolo": "YoloV8",
+  "gt_report": "GTReport",
+  "platform_config": "framework_config/yolov8-patch_training_pipeline.json"
+}
+
+--- Validation Pipeline ---
+{
+  "raw_data_source": "Local",
+  "pipeline_type": "ValidationPipeline",
+  "pipeline_platform": "IVAValidationPipeline",
+  "custom_pipeline_yolo": "YoloV8",
+  "gt_report": "GTReport",
+  "platform_config": "framework_config/iva_validation_config.json"
+}
+
+--- Validation Pipeline (Patch-based Inference) ---
+{
+  "raw_data_source": "Local",
+  "pipeline_type": "ValidationPipeline",
+  "pipeline_platform": "IVAValidationPipeline",
+  "custom_pipeline_yolo": "YoloV8",
+  "gt_report": "GTReport",
+  "platform_config": "framework_config/iva_validation_patch_config.json"
+}

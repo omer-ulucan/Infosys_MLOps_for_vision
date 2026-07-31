@@ -1,0 +1,12 @@
+{
+  "test_img_path": "groundtruth_testing_data/data/original images",
+  "original_annotation_path":"groundtruth_testing_data/data/original Annotation",
+  "predicted_annotation_path": "groundtruth_testing_data/data/predicted",
+  "metadata_path" : "groundtruth_testing_data/data/original Json",
+  "labels_file_path": "groundtruth_testing_data/data/classes.names",
+  "report_path":"gt_reports",
+  "url" : "http://localhost:8000",
+  "url_key" : "CocoObjectDetection_Y8",
+  "confidence_threshold": 0.35,
+  "patch_based_inference": "False"
+}

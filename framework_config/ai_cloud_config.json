@@ -1,0 +1,9 @@
+{
+  "server":"",
+  "access_key":"",
+  "secret_key":"",
+  "model_bucket":"mmsrepo",
+  "storage_data_path":"Product_Detection/Storage/data",
+  "training_data_path": "Product_Detection/Master/",
+  "training_data_folder": "yolov4_data4"
+}

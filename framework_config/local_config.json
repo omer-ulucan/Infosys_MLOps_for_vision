@@ -1,0 +1,6 @@
+{
+  "original_data_path": "raw_training_data",
+"raw_img_path" : "training_data/Images",
+"raw_json_label_path" : "training_data/labels",
+  "ground_truth_percentage": 0.1
+}

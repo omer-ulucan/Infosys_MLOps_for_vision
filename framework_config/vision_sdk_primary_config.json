@@ -1,0 +1,8 @@
+{
+  "raw_data_source": "Local",
+  "pipeline_type": "ValidationPipeline",
+  "pipeline_platform": "IVAValidationPipeline",
+  "custom_pipeline_yolo": "YoloV8",
+  "gt_report": "GTReport",
+  "platform_config": "framework_config/iva_validation_patch_config.json"
+}

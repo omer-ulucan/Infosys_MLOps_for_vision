@@ -1,0 +1,39 @@
+{    
+    "template_embeddings":
+    {
+        "type":"local", 
+        "offlineModel":"C:\\Users\\bikram.halder\\.cache\\huggingface\\hub\\models--google--vit-base-patch16-224-in21k",
+        "cropObjectFromImages":true,
+        "templatePath":"H:/data/feature_extraction_output",
+        "classFile":"H:/data/gt_input/classes.names",
+        "embeddings_format":"pickle",
+        "embeddings_model_class" : "Google_vit_model", 
+        "embeddings_model":"google/vit-base-patch16-224-in21k",
+        "feature_aggregation": "max",
+        "model_folder_name":"models--google--vit--base--patch16-224-in21k",
+        "extension_type":[".jpg",".jpeg",".png"]
+
+    },
+    "input_from": 
+    {
+        "type":"Local",
+        "path":"H:/data/gt_input"
+    },    
+    "output_to": 
+    {
+        "type":"Local",
+        "path":"H:/data/validation_by_embeddings_output",
+        "rows_per_report":60
+    },
+     "similarity_check":
+    {
+        "method":"cosine_similarity",
+        "confidence_threshold" :0.90,
+        "records_to_return":5
+    },
+
+    "report_generator":
+    {
+        "gt_category_headers" : ["Product","Lighting","Distance"]
+    }
+}

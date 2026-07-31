@@ -1,0 +1,15 @@
+{
+"workers" : 4,
+"device" : 0,
+  "batch_size": 8,
+  "data_yaml": "framework_config/yolov7-custom-training-data.yaml",
+  "cfg_yaml": "framework_config/yolov7-custom-training-cfg.yaml",
+  "weights": "yolov7-main/yolov7.pt",
+  "model_name": "yolo-v7",
+  "hyper_parameter_file":"data/hyp.scratch.p5.yaml",
+"augmentation_of_data" : [{"HorizontalFlip" : {"p": 1},"Rotate" : {"limit" : 30, "p" : 1},
+  "GaussianBlur" : {"p" : 1}}],
+  "augmentation_of_data_type": "Partial",
+  "special_augmentation_of_data" : [],
+  "labels_file_name" : "classes"
+}

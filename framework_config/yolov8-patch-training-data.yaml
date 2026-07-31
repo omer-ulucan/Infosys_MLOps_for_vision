@@ -1,0 +1,5 @@
+train: H:/data/patchInference_training_input/train/images
+val: H:/data/patchInference_training_input/val/images
+
+nc: 5
+names: ["gate_valve","globe_valve","check_valve","spectacle_blind","pressure_indicator"]

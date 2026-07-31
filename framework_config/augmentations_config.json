@@ -1,0 +1,33 @@
+{
+    "path":
+    {
+        "input_from" : "H:/data/augmentation_input",
+        "output_to" : "H:/data/augmentation_output"
+    },
+    "labels_file_name" : "classes",
+    "image_extensions": [".png", ".jpg", ".jpeg"],
+    "save_original_file" : true ,
+    "generic_augmentation" : 
+    {
+        "augmentation_type": "Full",
+        "augmentation_techniques" : 
+        [{
+            "Blur" : {"blur_limit": 15, "p": 1},
+            "HorizontalFlip" : {"p" : 1},
+            "Rotate" : {"limit" : 30, "p" : 1}, 
+            "GaussianBlur" : {"blur_limit" : [3, 7], "p" : 0.45},
+            "MotionBlur" : {"blur_limit" : [13, 33] , "always_apply" :"False" , "p": 0.75},
+            "GaussNoise" : {"var_limit" : [50.0, 100.0], "mean": 0, "per_channel": "True", "p": 1}
+        }]
+    },
+    "special_augmentation":
+    {
+        "class_list" : ["NA"],
+        "augmentation_techniques" :
+        [{
+            "Blur" : {"blur_limit": 15, "p": 1},
+            "HorizontalFlip" : {"p" : 1},
+            "Rotate" : {"limit" : 30, "p" : 1}
+        }]
+    }    
+}

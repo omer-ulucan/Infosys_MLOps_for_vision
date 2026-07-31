@@ -1,0 +1,6 @@
+# Pip constraints file - use with: pip install -r requirements.txt -c constraints.txt
+# Blocks packages with licensing issues that are pulled in as transitive dependencies.
+
+# dtlpymetrics is a transitive dependency of dtlpy but is never called by this project.
+# Blocked due to licensing restrictions.
+dtlpymetrics==0.0.0

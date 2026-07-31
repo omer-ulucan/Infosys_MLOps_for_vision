@@ -1,0 +1,18 @@
+{
+"AWS_ACCESS_KEY_ID":"",
+"AWS_SECRET_ACCESS_KEY":"",
+"AWS_SESSION_TOKEN": "",
+  "region_name": "eu-west-1",
+"endpoint_name": "",
+  "endpoint_type": "yolox",
+"iteration_count": 1,
+  "test_img_path": "groundtruth_testing_data/data/original images/",
+  "original_annotation_path":"groundtruth_testing_data/data/original Annotation/",
+  "predicted_annotation_path": "groundtruth_testing_data/data/predicted/",
+  "metadata_path" : "groundtruth_testing_data/data/original Json/",
+  "labels_file_path": "groundtruth_testing_data/data/classes.names",
+  "inference_image_path": "updated_groundtruth_images",
+  "report_path":"gt_reports",
+  "project_name": "BPOST",
+  "confidence_threshold": 0.4
+}

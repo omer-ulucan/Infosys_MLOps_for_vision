@@ -1,0 +1,10 @@
+{
+  "aws_access_key_id": "",
+  "aws_secret_access_key": "",
+  "bucket_name": "",
+  "s3_folder": "",
+  "raw_img_path" : "training_data/Images",
+  "raw_json_label_path" : "training_data/labels",
+  "local_dir": "",
+  "ground_truth_percentage": 0.1
+}

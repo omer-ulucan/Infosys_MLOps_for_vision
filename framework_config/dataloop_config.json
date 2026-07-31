@@ -1,0 +1,8 @@
+{
+"dl_project_name" : "",
+"dl_dataset_name" : "",
+"dl_img_path" : "training_data/Images",
+"dl_json_label_path" : "training_data/labels",
+  "dl_filter": "",
+  "groundtruth_percentage": 0.1
+}

@@ -1,0 +1,7 @@
+{
+  "logging_type": "File",
+  "logging_file": "ML-OPS_SDK.log",
+  "logging_level": 20,
+  "logging_db_type": "RDBMS",
+  "logging_db_engine": "sqlite:///log_db.sqlite3"
+}

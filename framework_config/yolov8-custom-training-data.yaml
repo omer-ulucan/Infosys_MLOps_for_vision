@@ -1,0 +1,9 @@
+# YOLOv8 Training Configuration
+train: H:/data/training_input/train/images
+val: H:/data/training_input/val/images
+
+nc: 5
+names: ["BRKCCHER00001PO","CNDSSKIV00001PO","CHLTLNDC00001PO","CFEECFMT00001PO","SFDRCOCOA0001PO"]
+
+# Optional: additional paths
+# test: ./yolov8-main/data/test/images

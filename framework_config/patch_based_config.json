@@ -1,0 +1,23 @@
+{
+    "enable_patch_based": true,
+    "pdf_path": "H:/Infosys MLOps for Vision/patch_inference/ps50005.pdf",
+    "pdf_image_output_folder": "H:/Infosys MLOps for Vision/pdf_image_output_folder",
+    "model_path": "H:/Infosys MLOps for Vision/model_registry/yolov8_8c4e6ba1-8a4e-11f1-8373-7c1e52188777_best.pt",
+    "patch_size": 640,
+    "stride": 256,
+    "conf": 0.6,
+    "iou": 0.2,
+    "classes_list": [0, 1, 2, 3, 4],
+    "class_names": {
+        "0": "gate_valve",
+        "1": "globe_valve", 
+        "2": "check_valve",
+        "3": "spectacle_blind",
+        "4": "pressure_indicator"
+    },
+    "save_patches": true,
+    "patches_output_folder": "./patch_outputs",
+    "save_patch_detections": true,
+    "save_combined_visualization": true,
+    "stitch_results": true
+}

@@ -1,0 +1,4 @@
+classes = 5
+train  = yolov4-main/data/train.txt
+names = framework_config/yolov4-custom_training_pipeline.names
+backup = yolov4-main/backup
