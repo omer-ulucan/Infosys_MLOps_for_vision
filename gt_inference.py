@@ -168,10 +168,7 @@ def ground_truth_pred_main(new_folder_gt, dataset_name, iteration_count, gt_repo
                     prec = v["precision"].mean() if num_images != 0 else 0.0
                     rec = v["recall"].max() if num_images != 0 else 0.0
                     ap = v["AP"]
-                    try:
-                        f1_score = (2 * prec * rec) / (prec + rec)
-                    except ZeroDivisionError:
-                        f1_score = 0.0
+                    f1_score = (2 * prec * rec) / (prec + rec) if (prec + rec) > 0 else 0.0
 
                     num_cat_types = num_cat_types + 1 if num_images != 0 else num_cat_types
 
