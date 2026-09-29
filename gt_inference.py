@@ -72,8 +72,8 @@ def get_json_df(json_file):
     ds = []
     for file in os.listdir(json_file):
         file_name = os.path.splitext(file)[0]
-        f = open(json_file + "/" + file)
-        data = json.load(f)
+        with open(json_file + "/" + file) as f:
+            data = json.load(f)
         user_data = data["user"]
         user_data["image"] = file_name
         # print(user_data)
