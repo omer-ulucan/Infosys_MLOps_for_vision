@@ -2244,8 +2244,8 @@ class CustomYoloPipelineYoloV4:
                 )
                 # After training, get metrics
                 metrics = results.results_dict
-                precision = metrics.get('metrics/precision', 0)
-                recall = metrics.get('metrics/recall', 0)
+                precision = metrics.get('metrics/precision(B)', 0)
+                recall = metrics.get('metrics/recall(B)', 0)
 
                 # Calculate F1 score
                 f1_score = 2 * (precision * recall) / (precision + recall) if (precision + recall) > 0 else 0
@@ -2253,8 +2253,8 @@ class CustomYoloPipelineYoloV4:
                 print(f"Precision: {precision:.4f}")
                 print(f"Recall: {recall:.4f}")
                 print(f"F1 Score: {f1_score:.4f}")
-                print(f"mAP50: {metrics.get('metrics/mAP50', 0):.4f}")
-                print(f"mAP50-95: {metrics.get('metrics/mAP50-95', 0):.4f}")
+                print(f"mAP50: {metrics.get('metrics/mAP50(B)', 0):.4f}")
+                print(f"mAP50-95: {metrics.get('metrics/mAP50-95(B)', 0):.4f}")
                 
                 print("YOLOv8 training completed successfully!")
                 
