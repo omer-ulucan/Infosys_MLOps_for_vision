@@ -2183,6 +2183,16 @@ class CustomYoloPipelineYoloV4:
                 model_size = self.custom_config_dict.get("model_size", "yolov8n.pt")
                 model = YOLO(model_size)
                 
+                # Use the data_yaml from config, but validate it's a YAML file for YOLOv8
+                yolov8_data_yaml = self.data_yaml
+                if not yolov8_data_yaml.endswith('.yaml') and not yolov8_data_yaml.endswith('.yml'):
+                    print(f"Warning: YOLOv8 requires YAML format, but got: {yolov8_data_yaml}")
+                    print("YOLOv8 data file should end with .yaml or .yml extension")
+                    raise ValueError(f"Invalid data file format for YOLOv8: {yolov8_data_yaml}")
+                
+                if not os.path.exists(yolov8_data_yaml):
+                    raise FileNotFoundError(f"YOLOv8 data configuration file not found: {yolov8_data_yaml}")
+                
                 # Verify the data YAML has the correct number of classes
                 print(f"Validating class configuration for YOLOv8...")
                 try:
@@ -2210,15 +2220,6 @@ class CustomYoloPipelineYoloV4:
                 save_period = self.custom_config_dict.get("save_period", 10)
                 # save_period = self.custom_config_dict.get("save_period", 10)
                 
-                # Use the data_yaml from config, but validate it's a YAML file for YOLOv8
-                yolov8_data_yaml = self.data_yaml
-                if not yolov8_data_yaml.endswith('.yaml') and not yolov8_data_yaml.endswith('.yml'):
-                    print(f"Warning: YOLOv8 requires YAML format, but got: {yolov8_data_yaml}")
-                    print("YOLOv8 data file should end with .yaml or .yml extension")
-                    raise ValueError(f"Invalid data file format for YOLOv8: {yolov8_data_yaml}")
-                
-                if not os.path.exists(yolov8_data_yaml):
-                    raise FileNotFoundError(f"YOLOv8 data configuration file not found: {yolov8_data_yaml}")
                 
                 print(f"Using YOLOv8 data config: {yolov8_data_yaml}")
                 print(f"Starting YOLOv8 training with {epochs} epochs...")
