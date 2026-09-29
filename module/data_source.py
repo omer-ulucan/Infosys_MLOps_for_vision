@@ -659,7 +659,6 @@ class DataLoop:
 class S3:
     
     def __init__(self, aws_config_dict, custom_logger, pipeline_type):
-        import boto3
         self.custom_logger = custom_logger
         self.aws_config_dict = aws_config_dict
         self.pipeline_type = pipeline_type
@@ -716,6 +715,7 @@ class S3:
             local dir: a relative or absolute directory path in the local file system
         """
         try:
+            import boto3
             s3 = boto3.resource('s3', aws_access_key_id=self.aws_access_key_id,
                                 aws_secret_access_key=self.aws_secret_access_key)
 
