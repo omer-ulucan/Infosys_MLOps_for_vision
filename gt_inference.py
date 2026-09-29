@@ -240,6 +240,7 @@ def ground_truth_pred_main(new_folder_gt, dataset_name, iteration_count, gt_repo
 
     writer.close()
     # Coping the generated excel files to respective folders
+    os.makedirs("gt_reports", exist_ok=True)
     shutil.copy2(f"{new_folder_gt}/reports/class_wise_report.xlsx", "gt_reports")
 
     # # Plotting
