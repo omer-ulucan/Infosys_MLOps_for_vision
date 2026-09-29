@@ -72,8 +72,8 @@ def get_json_df(json_file):
     ds = []
     for file in os.listdir(json_file):
         file_name = os.path.splitext(file)[0]
-        f = open(json_file + "/" + file)
-        data = json.load(f)
+        with open(json_file + "/" + file) as f:
+            data = json.load(f)
         user_data = data["user"]
         user_data["image"] = file_name
         # print(user_data)
@@ -168,10 +168,7 @@ def ground_truth_pred_main(new_folder_gt, dataset_name, iteration_count, gt_repo
                     prec = v["precision"].mean() if num_images != 0 else 0.0
                     rec = v["recall"].max() if num_images != 0 else 0.0
                     ap = v["AP"]
-                    try:
-                        f1_score = (2 * prec * rec) / (prec + rec)
-                    except ZeroDivisionError:
-                        f1_score = 0.0
+                    f1_score = (2 * prec * rec) / (prec + rec) if (prec + rec) > 0 else 0.0
 
                     num_cat_types = num_cat_types + 1 if num_images != 0 else num_cat_types
 
@@ -193,15 +190,17 @@ def ground_truth_pred_main(new_folder_gt, dataset_name, iteration_count, gt_repo
 
         classwise_df = pd.DataFrame(classwise_data)
         classwise_df.drop('num_cat_types', inplace=True, axis=1)
+        # Classes with no evaluated categories report 0 instead of NaN
+        cat_divisor = num_cat_types if num_cat_types > 0 else 1
         class_res_dict["class_name"].append(c)
         class_res_dict["ap_" + str(iteration_count)].append(
-            classwise_df["ap_" + str(iteration_count)].sum() / num_cat_types)
+            classwise_df["ap_" + str(iteration_count)].sum() / cat_divisor)
         class_res_dict["precision_" + str(iteration_count)].append(
-            classwise_df["precision_" + str(iteration_count)].sum() / num_cat_types)
+            classwise_df["precision_" + str(iteration_count)].sum() / cat_divisor)
         class_res_dict["recall_" + str(iteration_count)].append(
-            classwise_df["recall_" + str(iteration_count)].sum() / num_cat_types)
+            classwise_df["recall_" + str(iteration_count)].sum() / cat_divisor)
         class_res_dict["F1-score_" + str(iteration_count)].append(
-            classwise_df["f1-score_" + str(iteration_count)].sum() / num_cat_types)
+            classwise_df["f1-score_" + str(iteration_count)].sum() / cat_divisor)
         # import pdb;
         # pdb.set_trace()
         if wb is not None:
@@ -241,6 +240,7 @@ def ground_truth_pred_main(new_folder_gt, dataset_name, iteration_count, gt_repo
 
     writer.close()
     # Coping the generated excel files to respective folders
+    os.makedirs("gt_reports", exist_ok=True)
     shutil.copy2(f"{new_folder_gt}/reports/class_wise_report.xlsx", "gt_reports")
 
     # # Plotting
