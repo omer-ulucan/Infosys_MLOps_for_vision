@@ -30,6 +30,7 @@ class MLOPSPipeline:
         self.gt_report = gt_report
         self.pipeline_type = pipeline_type
         self.platform_config_path = platform_config_path
+        self.custom_pipeline_yolo_version = None
         if self.raw_data_source is None and self.pipeline_platform is None and gt_report is None:
             primary_config = get_dict_from_json('framework_config/vision_sdk_primary_config.json')
             self.raw_data_source = primary_config['raw_data_source']
