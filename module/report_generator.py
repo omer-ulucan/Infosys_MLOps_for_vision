@@ -23,7 +23,7 @@ from sklearn.metrics import precision_score, recall_score, f1_score
 
 def get_prediction_data(prediction_list):
     all_predictions = []
-    max_similarity_score  = 0
+    max_similarity_score  = float('-inf')
     best_match = {}
     next_best_match = {}
     for prediction in prediction_list:
@@ -38,7 +38,7 @@ def get_prediction_data(prediction_list):
             best_match = prediction_data
             max_similarity_score = prediction_data['similarity_score']
         all_predictions.append(prediction_data)
-    next_best_match = [ap for ap in all_predictions if ap['file_path'] != best_match['file_path']]
+    next_best_match = [ap for ap in all_predictions if ap['file_path'] != best_match.get('file_path')]
 
     #return best_match,next_best_match,prediction['prediction_result']
     return best_match,next_best_match,best_match.get('Prediction_result', '') 
@@ -78,7 +78,7 @@ def format_report_data(validation_data):
             "file_path" : item['filePath'],
             "category": concatenated_category,
             **category_dict,  # Dynamically add all keys from category_dict
-            "result" : get_outcome(item['actualClass'],best_match['class_name']),
+            "result" : get_outcome(item['actualClass'],best_match.get('class_name')),
             "class_name": item['actualClass'],
             "GT":
             {
