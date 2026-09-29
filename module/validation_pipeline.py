@@ -39,7 +39,7 @@ class IVAValidationPipeline:
         
         # Check if patch-based inference is enabled in IVA validation config
         patch_based_inference_setting = self.inference_config_dict.get('patch_based_inference', 'False')
-        self.patch_based_inference_enabled = patch_based_inference_setting.lower() in ['true', '1', 'yes']
+        self.patch_based_inference_enabled = str(patch_based_inference_setting).lower() in ['true', '1', 'yes']
         
         # Initialize detection rate method for comprehensive metrics
         self.detection_rate_method = 'f1_score'  # Default to F1-Score for balanced evaluation
