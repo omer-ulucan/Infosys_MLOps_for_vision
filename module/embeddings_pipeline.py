@@ -277,7 +277,7 @@ class FeatureExtractionPipeline:
                         # Use the values as they are for XYWH format
                         print(file)
                         x_min, y_min, width, height = values
-                        imgCropInfo = [class_id, x_min, y_min, width, height]
+                        imgCropInfo = (x_min, y_min, width, height)
                     # Crop the image using the calculated or existing crop info
                     img = crop_object_from_image(file,img, imgCropInfo,self.output_to_path,os.path.basename(folder['folderName']),self.saveCroppedObject,self.saveCroppedObjectWithBbox)
                     
