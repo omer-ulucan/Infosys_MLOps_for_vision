@@ -1,0 +1,4 @@
+# Lightweight dependencies for the unit tests run in CI
+pytest
+pyyaml
+pillow
