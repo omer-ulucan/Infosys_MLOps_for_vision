@@ -2200,16 +2200,13 @@ class CustomYoloPipelineYoloV4:
                     with open(yolov8_data_yaml, 'r') as f:
                         yaml_data = yaml.safe_load(f)
                     
-                    if 'nc' in yaml_data and yaml_data['nc'] != 3:
-                        print(f"Warning: YAML nc={yaml_data['nc']} but expected 5 classes")
-                        print(f"This might cause background class issues in YOLOv8")
-                    
-                    if 'names' in yaml_data:
-                        class_count = len(yaml_data['names']) if isinstance(yaml_data['names'], list) else len(yaml_data['names'])
-                        if class_count != 5:
-                            print(f"Warning: Found {class_count} class names but expected 5")
+                    if 'nc' in yaml_data and 'names' in yaml_data:
+                        class_count = len(yaml_data['names'])
+                        if yaml_data['nc'] != class_count:
+                            print(f"Warning: YAML nc={yaml_data['nc']} but {class_count} class names are listed")
+                            print(f"This might cause background class issues in YOLOv8")
                         else:
-                            print(f"✅ Correct 5 classes found: {yaml_data['names']}")
+                            print(f"✅ {class_count} classes found: {yaml_data['names']}")
                 except Exception as e:
                     print(f"Warning: Could not validate YAML config: {e}")
                 
