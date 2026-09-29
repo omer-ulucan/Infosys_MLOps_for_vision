@@ -315,4 +315,4 @@ class FeatureExtractionPipeline:
             plot_embeddings.plot_plotly_3d_pca(pca, classes, combined_plot_path)
             self.logger.info(f"Created combined 3D PCA plot: {combined_plot_path}")
                 
-        return featureList
+        return all_features
