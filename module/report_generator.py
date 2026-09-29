@@ -23,7 +23,7 @@ from sklearn.metrics import precision_score, recall_score, f1_score
 
 def get_prediction_data(prediction_list):
     all_predictions = []
-    max_similarity_score  = 0
+    max_similarity_score  = float('-inf')
     best_match = {}
     next_best_match = {}
     for prediction in prediction_list:
